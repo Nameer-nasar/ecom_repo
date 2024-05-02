@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% if category %}
+<div>
+    <p> Ours Products Category </p>
+</div>
+{% endif %}
+<div>
+    {% if category %}
+    <img src="{{Category.image.url}}" style="height: 600px; width:1500px;">
+</div>
+<br>
+<div>
+  <h1> {{Category.name}}</h1>
+    <p>{{Category.price}}</p>
+</div>
+{% else %}
+<div>
+    <img src="{% static 'images/imge1.jpg' %}" alt="wallpaper" style=" width: 350px; height: 50;">
+    <img src="{% static 'images/img2.jpg' %}" alt="wallpaper" style="width: 300px; height: 50;">
+    <img src="{% static 'images/img3.jpg' %}" alt="wallpaper" style="width: 400px; height: 50;">
+    <img src="{% static 'images/img4.jpg' %}" alt="wallpaper" style="width: 400px; height: 40;">
+</div>
+<div>
+    <h1 style=" text-align: center; background-color: blue; color: white"> WELCOME TO THE BEST-BUY </h1>
+    <h5 style="text-align: center; color: blue;"> BUY THE WORLD IN A TOUCH</h5>
+    <h4>
+        Welcome to BEST-BUY! Explore our curated collection of must-have items, from stylish accessories to practical gadgets. Find everything you need and more, all at your fingertips!
+    </h4>
+</div>
+{% endif %}
+<div class="container">
+<div class="row">
+
+{% for items in product %}
+    <div class="col-12 col-sm-6 col-md-4 mb-4">
+<div class="card shadow" style="width: 15rem;">
+  <img src="{{items.image.url}}" class="card-img-top" style="width:200px; height:200px;" alt="image">
+  <div class="card-body text-center">
+    <h5 class="card-title">{{items.name}}</h5>
+    <p class="card-text">{{items.price}}</p>
+    <a href="#" class="btn btn-primary">Add to Cart</a>
+  </div>
+</div>
+    </div>
+{% endfor %}
+</div>
+    </div>
+{% endblock %}

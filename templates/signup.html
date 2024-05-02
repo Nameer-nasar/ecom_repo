@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h1 style="text-align:center;"> Create your Account </h1>
+<style>
+     .formdata{
+         border: 2px solid ;
+         border-radius: 8px;
+         padding: 10px;
+         margin: 0 auto;
+         margin-top: 60px;
+         max-width: 280px;
+    }
+    label {
+          display: block;
+          margin-bottom: 15px;
+    }
+    .btnsss{
+           background-color: hsl(147, 50%, 47%);
+           color: white;
+           padding: 10px 20px;
+           border: none;
+           cursor: pointer;
+           width: 50%;
+           margin-top: 10px;
+
+}
+</style>
+<div>
+    <h5>  <form class="formdata" action="/signup/" method="post">
+    {% csrf_token %}
+    <label for =""> username: </label>
+    <input type="text" id="username" name="username" placeholder="Enter your username" required><br>
+    <label for = ""> first name: </label>
+    <input type="text" id="fname" name="fname" placeholder="Enter your first name" required><br>
+    <label for = ""> last name: </label>
+    <input type="text" id="lname" name="lname" placeholder="Enter your last name" required><br>
+    <label for = ""> Email id: </label>
+    <input type="email" id="email" name="email" placeholder="Enter your email id" required><br>
+    <label for =""> password: </label>
+    <input type="password" id="password1" name="password1" placeholder="Enter your password" required><br>
+    <label for=""> Confirm password </label>
+    <input type="password" id="password2" name="password2" placeholder="Confirm  your password" required><br>
+    <button class="btnsss" type="submit" >signup</button>
+
+    </form>
+
+   </h5>
+</div>
+
+{% endblock %}
